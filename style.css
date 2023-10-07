@@ -1,0 +1,40 @@
+:root {
+  --grid-cols: 1;
+  --grid-rows: 1;
+
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header,
+.footer {
+  padding: 10px;
+  text-align: center;
+}
+
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  /* Border for the grid */
+  max-width: 80%;
+  /* Adjust max-width as needed */
+  margin: auto;
+  /* Center the grid container */
+}
+
+.grid-item {
+  flex: 1 0 calc(100% / var(--grid-cols));
+  /* Adjust item width */
+  padding: 10px;
+  /* Adjust padding as needed */
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  text-align: center;
+  background-color: white;
+}
