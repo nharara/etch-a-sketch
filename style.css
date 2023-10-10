@@ -1,14 +1,25 @@
 :root {
-  --grid-cols: 1;
-  --grid-rows: 1;
-  --grid-item-size: 30px;
+  --primary-dark: #333;
+  --primary-light: #ededed;
+  --secondary-light: #fefefe;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  /* footer support */
+  margin-bottom: 100px;
 }
 
 .header,
@@ -19,24 +30,22 @@ body {
 
 
 .grid-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  width: 500px;
+  height: 500px;
   border: 1px solid black;
-  /* Border for the grid */
-  max-width: 80%;
-  /* Adjust max-width as needed */
+
   margin: auto;
-  /* Center the grid container */
+
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 }
 
 .grid-item {
-  flex: 1 0 calc(100% / var(--grid-cols));
-  /* Adjust item width */
-  padding: 10px;
-  /* Adjust padding as needed */
+
   box-sizing: border-box;
   border: 1px solid #ddd;
-  text-align: center;
+
   background-color: white;
   aspect-ratio: 1;
 }
@@ -67,4 +76,44 @@ input[type='color'] {
   width: 80px;
   height: 80px;
   border: none;
+}
+
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 200px;
+}
+
+button {
+  padding: 10px 20px;
+  border: 1px solid var(--primary-dark);
+  border-radius: 5px;
+}
+
+button.active {
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+}
+
+button,
+input[type='color'] {
+  transition: transform 0.1s ease-in-out;
+}
+
+button:hover,
+input[type='color']:hover {
+  transform: scale(1.05);
 }
